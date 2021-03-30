@@ -73,6 +73,8 @@ GEM
       dotenv (= 2.7.6)
       railties (>= 3.2)
     erubi (1.10.0)
+    fast_jsonapi (1.5)
+      activesupport (>= 4.2)
     ffi (1.15.0)
     ffi (1.15.0-java)
     globalid (0.4.2)
@@ -176,6 +178,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   dotenv-rails
+  fast_jsonapi
   jbuilder (~> 2.7)
   jwt
   listen (~> 3.3)
