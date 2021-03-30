@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2021_03_30_180125) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -39,6 +38,7 @@ ActiveRecord::Schema.define(version: 2021_03_30_180125) do
     t.string "name"
     t.text "description"
     t.decimal "price", precision: 8, scale: 2
+    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
