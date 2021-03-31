@@ -1,7 +1,7 @@
 class Api::ProductsController < ApplicationController
 
   def index
-    render json: Product.all, except: [:created_at, :updated_at]
+    render json: Product.all.order('RANDOM()'), except: [:created_at, :updated_at]
   end
 
   def show
