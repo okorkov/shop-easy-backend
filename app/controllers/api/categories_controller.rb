@@ -10,5 +10,3 @@ class Api::CategoriesController < ApplicationController
   end
 
 end
-
-# render json: product, except: [:created_at, :updated_at, :category_id], include: [:category => {only: [:name, :id]}]
