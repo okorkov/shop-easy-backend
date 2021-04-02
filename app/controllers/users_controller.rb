@@ -12,9 +12,5 @@ class UsersController < ApplicationController
   def create
     raise params.inspect
   end
-
-  def user_auth
-    raise params.inspect
-  end
-
+  
 end
