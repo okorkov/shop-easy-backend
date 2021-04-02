@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
   def create
     # raise params.inspect
     user = User.find_by(email: params[:email])
@@ -9,4 +10,10 @@ class SessionsController < ApplicationController
       render json: { errors: ['Invalid username or password'], status: 401}
     end
   end
+
+  def destroy
+    reset_session
+    render json: {status: 200, message: "Logged out successfully"}
+  end
+
 end
