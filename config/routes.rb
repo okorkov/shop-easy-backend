@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   post 'users/user_auth'
 
-  resources :users, except: [:index]
+  resources :users, only: [:create, :update, :destroy]
   resources :sessions, only: [:create, :destroy]
 
   namespace :api do
