@@ -1,11 +1,11 @@
-class Api::OrdersController < ApplicationController
+class Api::CartsController < ApplicationController
 
   def create
     if current_user
       if params[:user][:user][:current_order] 
         order = Order.find_by(id: params[:user][:user][:current_order])
         product = Product.find_by(id: params[:data][:id])
-        order.products << product
+        order.products.push(product)
         order.save
         render json: order, include: [:products]
       else
