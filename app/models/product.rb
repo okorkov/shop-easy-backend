@@ -1,4 +1,4 @@
 class Product < ApplicationRecord
   belongs_to :category
-  belongs_to :order, optional: true
+  has_many :shopping_cart_items
 end

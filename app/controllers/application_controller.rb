@@ -14,4 +14,14 @@ class ApplicationController < ActionController::API
     def authorized
         render json: { message: 'Please log in', status: 403 } unless logged_in?
     end
+
+    def current_shopping_cart
+      if !session[:shopping_cart_id].nil?
+        ShoppingCart.find_by(id: session[:shopping_cart_id])
+      else
+        cart = ShoppingCart.new
+        cart.save
+        session[:shopping_cart_id] = cart.id
+      end
+    end
 end
