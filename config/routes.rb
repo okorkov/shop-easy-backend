@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :categories
     resources :products
-    resources :orders
+    resources :orders, only: [:create, :destroy]
   end
   
 end
