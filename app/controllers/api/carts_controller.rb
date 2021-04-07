@@ -15,7 +15,7 @@ class Api::CartsController < ApplicationController
   private 
 
   def ship_item_params(product)
-    {quantity: 1, product_id: product.id, shopping_cart_id: current_shopping_cart.id, unit_price: product.price}
+    {quantity: 1, product_id: product.id, shopping_cart_id: current_shopping_cart.id, unit_price: product.price, name: product.name, image: product.image}
   end
 
 end
