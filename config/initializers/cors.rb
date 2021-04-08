@@ -27,7 +27,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
   # end
 # remove local host before deployment to heroku
   allow do
-    origins 'https://shop-easy-online.web.app'
+    origins 'https://shop-easy-online.web.app', 'http://localhost:3001'
     resource '*',
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head],

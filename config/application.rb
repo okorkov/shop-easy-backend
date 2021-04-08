@@ -22,11 +22,15 @@ Bundler.require(*Rails.groups)
 module ShopEasyBackend
   class Application < Rails::Application
 
-    config.middleware.use ActionDispatch::Cookies
-    config.middleware.use ActionDispatch::Session::CookieStore
-    config.middleware.insert_after(ActionDispatch::Cookies, ActionDispatch::Session::CookieStore)
+    # config.middleware.use ActionDispatch::Cookies
+    # config.middleware.use ActionDispatch::Session::CookieStore
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+    
+    config.session_store :cookie_store, key: '_shop_easy_app'
+    config.middleware.use ActionDispatch::Session::CookieStore, key: '_shop_easy_app'
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.insert_after(ActionDispatch::Cookies, ActionDispatch::Session::CookieStore)
 
     # Configuration for the application, engines, and railties goes here.
     #
