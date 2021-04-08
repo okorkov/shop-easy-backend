@@ -36,7 +36,7 @@ module ShopEasyBackend
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
-    config.api_only = true
+    config.api_only = false
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore, key: '_shop_easy_app'
     config.middleware.insert_after ActionDispatch::Cookies, ActionDispatch::Session::CookieStore, key: '_shop_easy_app'

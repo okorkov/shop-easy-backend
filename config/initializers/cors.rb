@@ -20,7 +20,7 @@ Rails.application.config.action_controller.forgery_protection_origin_check = fal
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
 
   allow do
-    origins 'http://localhost:3001', 'https://shop-easy-online.web.app'
+    origins 'https://shop-easy-online.web.app', 'http://localhost:3001'
     resource '*',
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head],
