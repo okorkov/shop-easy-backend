@@ -38,7 +38,8 @@ module ShopEasyBackend
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
     config.middleware.use ActionDispatch::Cookies
-    config.middleware.use ActionDispatch::Session::CookieStore
+    config.middleware.use ActionDispatch::Session::CookieStore, key: '_shop_easy_app'
+    config.middleware.insert_after ActionDispatch::Cookies, ActionDispatch::Session::CookieStore, key: '_shop_easy_app'
     # config.middleware.insert_after(ActionDispatch::Cookies, ActionDispatch::Session::CookieStore)
  
   end
