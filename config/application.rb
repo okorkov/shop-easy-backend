@@ -41,10 +41,20 @@ module ShopEasyBackend
     # config.middleware.insert_after ActionDispatch::Cookies, ActionDispatch::Session::CookieStore, key: '_shop_easy_app'
     # config.middleware.insert_after(ActionDispatch::Cookies, ActionDispatch::Session::CookieStore)
     
-    config.session_store :cookie_store, key: '_shop_easy_app'
-    config.middleware.use ActionDispatch::Session::CookieStore, key: '_shop_easy_app'
-    config.middleware.use ActionDispatch::Cookies
-    config.middleware.use config.session_store, config.session_options
+    # config.session_store :cookie_store, key: '_shop_easy_app'
+    # config.middleware.use ActionDispatch::Session::CookieStore, key: '_shop_easy_app'
+    # config.middleware.use ActionDispatch::Cookies
+    # config.middleware.use config.session_store, config.session_options
+
+        # Middleware for ActiveAdmin
+        config.middleware.use Rack::MethodOverride
+        config.middleware.use ActionDispatch::Flash
+        config.middleware.use ActionDispatch::Cookies
+        config.middleware.use ActionDispatch::Session::CookieStore
+    
+
+    # config.middleware.use ActionDispatch::Cookies
+    # config.middleware.use ActionDispatch::Session::CookieStore
  
   end
 end
