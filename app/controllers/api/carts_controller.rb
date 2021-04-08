@@ -9,10 +9,6 @@ class Api::CartsController < ApplicationController
     render json:  shopItem, include: [:product, :shopping_cart]
   end
 
-  def destroy
-
-  end
-
   private 
 
   def ship_item_params(product)
