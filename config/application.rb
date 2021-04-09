@@ -26,11 +26,10 @@ module ShopEasyBackend
     # config.middleware.use ActionDispatch::Session::CookieStore
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+    config.api_only = true
     
-    config.session_store :cookie_store, key: '_shop_easy_app'
-    config.middleware.use ActionDispatch::Session::CookieStore, key: '_shop_easy_app'
     config.middleware.use ActionDispatch::Cookies
-    config.middleware.insert_after(ActionDispatch::Cookies, ActionDispatch::Session::CookieStore)
+    config.middleware.use ActionDispatch::Session::CookieStore
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -43,6 +42,5 @@ module ShopEasyBackend
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
-    config.api_only = true
   end
 end
