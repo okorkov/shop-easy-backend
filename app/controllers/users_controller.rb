@@ -3,14 +3,14 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      session[:user_id] = user.id
+      cookies[:user_id] = user.id
       if !current_shopping_cart
         cart = ShoppingCart.new
         cart.save
       else
         cart = current_shopping_cart
       end
-      session[:shopping_cart_id] = cart.id
+      cookies[:shopping_cart_id] = cart.id
       
       render json: {status: 200, user: user, cart: current_shopping_cart, cart_items: current_shopping_cart.shopping_cart_items}
     else
